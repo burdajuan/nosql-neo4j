@@ -5,6 +5,7 @@ services:
     environment:
       - NEO4J_AUTH=none
       - NEO4J_dbms_default__database=minigraphweb
+      - NEO4J_PLUGINS=["apoc","graph-data-science"]
     ports:
       - "7474:7474"
       - "7687:7687"
@@ -12,3 +13,4 @@ services:
       - ./practice-2:/var/lib/neo4j/import
       - ./neo4j-data:/data
       - ./load-dumps.sh:/load-dumps.sh
+      - ./neo4j-conf:/conf
