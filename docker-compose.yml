@@ -1,0 +1,14 @@
+services:
+  neo4j:
+    image: neo4j:5.23-community
+    container_name: neo4j
+    environment:
+      - NEO4J_AUTH=none
+      - NEO4J_dbms_default__database=minigraphweb
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - ./practice-2:/var/lib/neo4j/import
+      - ./neo4j-data:/data
+      - ./load-dumps.sh:/load-dumps.sh
